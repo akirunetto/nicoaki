@@ -271,6 +271,16 @@
     <!-- BACKGROUND STICKERS CONTAINER -->
     <div id="stickers-container"></div>
 
+    <!-- BACKGROUND CHERRY TREES (NEW) -->
+    <!-- Note: Ganti src dengan 'cherrytree.gif' jika file ada di satu folder -->
+    <img src="./assets/gif/cherrytree.gif" 
+         class="fixed top-20 left-0 h-[100px] md:h-[200px] z-[5] opacity-50 pointer-events-none object-contain drop-shadow-lg transform -scale-x-100" 
+         alt="Cherry Tree Top Left">
+    
+    <img src="./assets/gif/cherrytree.gif" 
+         class="fixed bottom-20 right-0 h-[100px] md:h-[200px] z-[5] opacity-50 pointer-events-none object-contain drop-shadow-lg" 
+         alt="Cherry Tree Bottom Right">
+
     <!-- MAIN CONTAINER - Use Space-y for Section separation -->
     <div class="max-w-5xl mx-auto space-y-16 relative z-10 pb-12">
 
@@ -298,13 +308,13 @@
                     <div class="win-content flex flex-col md:flex-row gap-4">
                         <!-- Left: Avatar/GIF -->
                         <div class="flex flex-col gap-2 w-full md:w-1/3">
-                            <div class="border-2 border-dashed border-pink-400 p-1 bg-white h-auto flex-grow relative min-h-[200px]">
-                                <img src="https://media.tenor.com/On7kvXhzml4AAAAi/loading-busy.gif" alt="Avatar" class="w-full h-full object-cover absolute inset-0 p-1">
+                            <div class="aspect-square border-2 border-dashed border-pink-400 p-1 bg-white relative">
+                                <img src="https://media.tenor.com/On7kvXhzml4AAAAi/loading-busy.gif" alt="Avatar" class="w-full h-full object-cover p-1">
                             </div>
                             
                             <!-- Music Player (Spotify Embed) -->
                             <div class="flex-shrink-0">
-                                <iframe style="border-radius:12px" src="https://open.spotify.com/embed/track/3iBgrkexCzVuPy4O9vx7Mf?utm_source=generator&theme=0" width="100%" height="152" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+                                <iframe data-testid="embed-iframe" style="border-radius:12px" src="https://open.spotify.com/embed/track/3clPsjTbx4UOPMeQn7FZkV?utm_source=generator&theme=0" width="100%" height="152" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
                             </div>
                         </div>
 
@@ -633,11 +643,14 @@
                             <a href="#" class="btn-retro flex items-center gap-2 px-4 py-2 bg-indigo-100 text-indigo-900 font-pixel text-xl hover:bg-white no-underline">
                                 <i class="fab fa-discord"></i> Discord: yumi#1234
                             </a>
-                            <a href="#" class="btn-retro flex items-center gap-2 px-4 py-2 bg-red-100 text-red-900 font-pixel text-xl hover:bg-white no-underline">
-                                <i class="fab fa-pinterest"></i> Pinterest
+                            <a href="#" class="btn-retro flex items-center gap-2 px-4 py-2 bg-pink-100 text-pink-900 font-pixel text-xl hover:bg-white no-underline">
+                                <i class="fab fa-instagram"></i> Instagram
                             </a>
                             <a href="#" class="btn-retro flex items-center gap-2 px-4 py-2 bg-blue-100 text-blue-900 font-pixel text-xl hover:bg-white no-underline">
                                 <i class="fab fa-twitter"></i> Twitter / X
+                            </a>
+                            <a href="#" class="btn-retro flex items-center gap-2 px-4 py-2 bg-blue-200 text-blue-800 font-pixel text-xl hover:bg-white no-underline">
+                                <i class="fab fa-facebook"></i> Facebook
                             </a>
                         </div>
                     </div>
@@ -665,8 +678,8 @@
     <div class="fixed bottom-0 left-0 w-full bg-[#c0c0c0] border-t-2 border-white flex items-center p-1 px-2 z-50 shadow-lg h-[40px]">
         
         <!-- Start Button -->
-        <button class="btn-retro flex items-center gap-2 px-3 py-1 font-bold font-main text-sm mr-2 shadow-[2px_2px_0_black]">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e2/Windows_logo_and_wordmark_-_1995-2001.svg/1200px-Windows_logo_and_wordmark_-_1995-2001.svg.png" class="h-4 w-auto">
+        <button onclick="window.scrollTo({top: 0, behavior: 'smooth'})" class="btn-retro flex items-center gap-2 px-3 py-1 font-bold font-main text-sm mr-2 shadow-[2px_2px_0_black]">
+            <img src="./assets/img/win95start.png" class="h-4 w-auto">
             Start
         </button>
 
@@ -788,12 +801,12 @@
             
             // List of Pixel/Cute Strawberry & Cake GIFs
             const gifPool = [
-                "https://media.tenor.com/2m7iI784Q6QAAAAi/spinning-strawberry.gif", 
-                "https://media.tenor.com/b_M7yq-dZowAAAAi/strawberry-cake-pixel.gif", 
-                "https://media.tenor.com/y1c2C2_4q8AAAAAi/strawberry-milk-pixel.gif", 
-                "https://media.tenor.com/qg9g6y8c0BQAAAAi/pixel-food-strawberry.gif",
-                "https://media.tenor.com/6a9yL6-kGgMAAAAi/cat-strawberry.gif",
-                "https://media.tenor.com/p_4tB9oT7hMAAAAi/strawberry-shortcake.gif"
+                "./assets/gif/hearts-spin.gif", 
+                "./assets/gif/strawberry.gif", 
+                "./assets/gif/strawberry-cake-cheesecake.gif", 
+                "./assets/gif/stars.gif",
+                "./assets/gif/strawberry.gif",
+                "./assets/gif/hearts-spin.gif"
             ];
 
             const stickerCount = 15; // Number of stickers
