@@ -252,6 +252,7 @@
             margin: 0;
             height: 24px;
             cursor: pointer;
+            transition: background 0.3s ease; /* Smooth transition */
         }
         input[type=range].desktop-scroll:focus {
             outline: none;
@@ -278,6 +279,7 @@
             border-bottom: 2px solid #404040;
             margin-top: 2px;
             box-shadow: none;
+            transition: background 0.3s ease; /* Smooth transition */
         }
         input[type=range].desktop-scroll::-webkit-slider-thumb:active {
             background: #a0a0a0;
@@ -627,13 +629,13 @@
                 <div class="win-content no-padding bg-white relative">
                     <div id="sample-scroll-container" class="flex overflow-x-hidden scroll-smooth h-[400px] md:h-[500px]">
                         <!-- Images are flex-shrink-0 to sit side-by-side -->
-                        <div class="flex-shrink-0 h-full w-auto aspect-[4/3] relative border-r-4 border-white group">
-                            <img src="./assets/img/zynnielle/ZYNNIELLE1.png?q=80&w=1000&auto=format&fit=crop" class="h-full w-auto object-cover">
-                            <div class="absolute bottom-4 left-4 bg-white/70 text-pink-500 px-2 font-pixel text-xl border border-pink-300">ZYNNIELLE1.PNG</div>
+                        <div class="flex-shrink-0 h-full w-auto relative border-r-4 border-white group">
+                            <img src="./assets/img/more_sketch/CHAR_SHEET.png" class="h-full w-auto object-cover">
+                            <div class="absolute bottom-4 left-4 bg-white/70 text-pink-500 px-2 font-pixel text-xl border border-pink-300">CHAR_SHEET.PNG</div>
                         </div>
-                        <div class="flex-shrink-0 h-full w-auto aspect-[4/3] relative border-r-4 border-white group">
-                            <img src="./assets/img/zynnielle/ZYNNIELLE2.png?q=80&w=1000&auto=format&fit=crop" class="h-full w-auto object-cover">
-                            <div class="absolute bottom-4 left-4 bg-white/70 text-pink-500 px-2 font-pixel text-xl border border-pink-300">ZYNNIELLE2.PNG</div>
+                        <div class="flex-shrink-0 h-full w-auto relative border-r-4 border-white group">
+                            <img src="./assets/img/more_sketch/SHIP.png" class="h-full w-auto object-cover">
+                            <div class="absolute bottom-4 left-4 bg-white/70 text-pink-500 px-2 font-pixel text-xl border border-pink-300">SHIP.PNG</div>
                         </div>
                         <div class="flex-shrink-0 h-full w-auto aspect-[4/3] relative border-r-4 border-white group">
                             <img src="./assets/img/zynnielle/ZYNNIELLE3.png?q=80&w=1000&auto=format&fit=crop" class="h-full w-auto object-cover">
@@ -857,26 +859,73 @@
             startTimer();
         }
 
-        // 4. SAMPLE SLIDER LOGIC
+        // 4. SAMPLE SLIDER LOGIC (IMPROVED SMOOTH SCROLLING)
         function setupSampleSlider() {
             const slider = document.getElementById('sample-slider');
             const container = document.getElementById('sample-scroll-container');
             
             if (!slider || !container) return;
 
+            let isUserScrolling = false;
+            let scrollTimeout;
+
+            // Slider input handler
             slider.addEventListener('input', () => {
-                const maxScroll = container.scrollWidth - container.clientWidth;
-                const scrollPos = (slider.value / 100) * maxScroll;
-                container.scrollLeft = scrollPos;
+            isUserScrolling = true;
+            clearTimeout(scrollTimeout);
+            
+            const maxScroll = container.scrollWidth - container.clientWidth;
+            const scrollPos = (slider.value / 100) * maxScroll;
+            
+            container.scrollLeft = scrollPos;
+            
+            scrollTimeout = setTimeout(() => {
+                isUserScrolling = false;
+            }, 150);
             });
 
+            // Container scroll handler
             container.addEventListener('scroll', () => {
+            if (isUserScrolling) return;
+            
+            const maxScroll = container.scrollWidth - container.clientWidth;
+            if (maxScroll > 0) {
+                const percentage = (container.scrollLeft / maxScroll) * 100;
+                slider.value = percentage;
+            }
+            }, { passive: true });
+
+            // Touch swipe support for mobile
+            let touchStartX = 0;
+            let touchEndX = 0;
+
+            container.addEventListener('touchstart', (e) => {
+            touchStartX = e.changedTouches[0].screenX;
+            }, { passive: true });
+
+            container.addEventListener('touchend', (e) => {
+            touchEndX = e.changedTouches[0].screenX;
+            handleSwipe();
+            }, { passive: true });
+
+            function handleSwipe() {
+            const swipeThreshold = 50;
+            const diff = touchStartX - touchEndX;
+            
+            if (Math.abs(diff) > swipeThreshold) {
                 const maxScroll = container.scrollWidth - container.clientWidth;
-                if (maxScroll > 0) {
-                    const percentage = (container.scrollLeft / maxScroll) * 100;
-                    slider.value = percentage;
+                const percentage = (container.scrollLeft / maxScroll) * 100;
+                
+                if (diff > 0) {
+                slider.value = Math.min(100, percentage + 100 / (container.scrollWidth / container.clientWidth));
+                } else {
+                slider.value = Math.max(0, percentage - 100 / (container.scrollWidth / container.clientWidth));
                 }
-            });
+                
+                const scrollPos = (slider.value / 100) * maxScroll;
+                container.scrollLeft = scrollPos;
+            }
+            }
         }
 
         // 5. RANDOM SCATTERED STICKERS (Usagi Style but Strawberry Theme)
