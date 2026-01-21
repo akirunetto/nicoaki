@@ -1,61 +1,70 @@
 <!DOCTYPE html>
 <html lang="id">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>✧ HUH?Ley! ART PORTFOLIO ✧</title>
     <link rel="icon" href="./assets/img/win95start2.png" type="image/x-icon">
-    
+
     <!-- SEO Meta Tags -->
-    <meta name="description" content="Discover HUH?Ley!'s vibrant art portfolio featuring digital illustrations, creative sketches, and unique artworks. Explore a collection of colorful and imaginative pieces.">
-    <meta name="keywords" content="art portfolio, digital art, illustrations, creative artwork, HUH?Ley!, sketches, digital illustrations">
+    <meta name="description"
+        content="Discover HUH?Ley!'s vibrant art portfolio featuring digital illustrations, creative sketches, and unique artworks. Explore a collection of colorful and imaginative pieces.">
+    <meta name="keywords"
+        content="art portfolio, digital art, illustrations, creative artwork, HUH?Ley!, sketches, digital illustrations">
     <meta name="author" content="HUH?Ley!">
     <meta name="robots" content="index, follow">
-    
+
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
     <meta property="og:title" content="✧ HUH?Ley! ART PORTFOLIO ✧">
-    <meta property="og:description" content="Discover HUH?Ley!'s vibrant art portfolio featuring digital illustrations, creative sketches, and unique artworks.">
+    <meta property="og:description"
+        content="Discover HUH?Ley!'s vibrant art portfolio featuring digital illustrations, creative sketches, and unique artworks.">
     <meta property="og:image" content="./assets/img/zynnielle/ZYNNIELLE3.png"> <!-- Replace with actual image path -->
     <meta property="og:url" content="https://nicoaki.vercel.app"> <!-- Replace with actual URL -->
     <meta property="og:site_name" content="HUH?Ley! ART PORTFOLIO">
-    
+
     <!-- Twitter -->
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="✧ HUH?Ley! ART PORTFOLIO ✧">
-    <meta name="twitter:description" content="Discover HUH?Ley!'s vibrant art portfolio featuring digital illustrations, creative sketches, and unique artworks.">
+    <meta name="twitter:description"
+        content="Discover HUH?Ley!'s vibrant art portfolio featuring digital illustrations, creative sketches, and unique artworks.">
     <meta name="twitter:image" content="./assets/img/zynnielle/ZYNNIELLE3.png"> <!-- Replace with actual image path -->
-    
+
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
-    
+
     <!-- Google Fonts: VT323 for Pixel Text, M PLUS Rounded 1c for body -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@400;700;800&family=VT323&display=swap" rel="stylesheet">
-    
+    <link href="https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@400;700;800&family=VT323&display=swap"
+        rel="stylesheet">
+
     <!-- FontAwesome for Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
     <style>
         /* --- GLOBAL STYLES --- */
         body {
-            background-color: #fce7f3; /* Pink base */
-            background-image: 
-                linear-gradient(90deg, rgba(200,200,255,0.3) 1px, transparent 1px),
-                linear-gradient(rgba(200,200,255,0.3) 1px, transparent 1px);
+            background-color: #fce7f3;
+            /* Pink base */
+            background-image:
+                linear-gradient(90deg, rgba(200, 200, 255, 0.3) 1px, transparent 1px),
+                linear-gradient(rgba(200, 200, 255, 0.3) 1px, transparent 1px);
             background-size: 20px 20px;
             font-family: 'VT323', monospace;
             overflow-x: hidden;
-            padding-bottom: 80px; /* Space for utility bar */
+            padding-bottom: 80px;
+            /* Space for utility bar */
         }
 
         /* Retro Scrollbar for Browser */
         ::-webkit-scrollbar {
             width: 12px;
-            height: 12px; 
+            height: 12px;
             background: #c0c0c0;
         }
+
         ::-webkit-scrollbar-thumb {
             background: #c0c0c0;
             border-top: 2px solid #fff;
@@ -63,23 +72,30 @@
             border-right: 2px solid #404040;
             border-bottom: 2px solid #404040;
         }
+
         ::-webkit-scrollbar-track {
             background: #e0e0e0;
             border: 1px dotted #808080;
         }
 
         /* --- UTILITIES --- */
-        .font-pixel { font-family: 'VT323', monospace; }
-        .font-main { font-family: 'M PLUS Rounded 1c', sans-serif; }
+        .font-pixel {
+            font-family: 'VT323', monospace;
+        }
+
+        .font-main {
+            font-family: 'M PLUS Rounded 1c', sans-serif;
+        }
 
         /* --- Y2K WINDOW STYLES (RESIZABLE & DRAGGABLE) --- */
         .win-box {
-            background: #e0e7ff; /* Lavender base */
+            background: #e0e7ff;
+            /* Lavender base */
             border-top: 2px solid #ffffff;
             border-left: 2px solid #ffffff;
             border-right: 2px solid #6b7280;
             border-bottom: 2px solid #6b7280;
-            box-shadow: 4px 4px 0px rgba(0,0,0,0.1);
+            box-shadow: 4px 4px 0px rgba(0, 0, 0, 0.1);
             position: relative;
             display: flex;
             flex-direction: column;
@@ -90,17 +106,19 @@
             z-index: 10;
             transition: box-shadow 0.2s;
         }
-        
+
         /* Active window effect */
         .win-box:active {
-            box-shadow: 6px 6px 0px rgba(0,0,0,0.2);
-            z-index: 50; /* Bring to front */
+            box-shadow: 6px 6px 0px rgba(0, 0, 0, 0.2);
+            z-index: 50;
+            /* Bring to front */
         }
 
         /* Mobile adaptation for resize handle */
         @media (max-width: 768px) {
             .win-box {
-                resize: vertical; /* Only height resize on mobile */
+                resize: vertical;
+                /* Only height resize on mobile */
             }
         }
 
@@ -114,22 +132,25 @@
             font-weight: bold;
             font-size: 1.2rem;
             text-shadow: 1px 1px 0 #000;
-            flex-shrink: 0; 
-            cursor: grab; /* Show grab cursor */
-            user-select: none; /* Prevent text selection while dragging */
+            flex-shrink: 0;
+            cursor: grab;
+            /* Show grab cursor */
+            user-select: none;
+            /* Prevent text selection while dragging */
         }
+
         .win-header:active {
             cursor: grabbing;
         }
 
         .win-content {
-            background: #fff0f5; 
+            background: #fff0f5;
             border: 2px inset #e5e7eb;
             padding: 1rem;
-            flex-grow: 1; 
+            flex-grow: 1;
             position: relative;
         }
-        
+
         .win-content.no-padding {
             padding: 0;
         }
@@ -145,6 +166,7 @@
             cursor: pointer;
             color: black;
         }
+
         .btn-retro:active {
             border-top: 2px solid #404040;
             border-left: 2px solid #404040;
@@ -156,21 +178,35 @@
         /* --- ANIMATIONS & DECOR --- */
         .scanlines {
             position: fixed;
-            top: 0; left: 0; w-full; h-full;
-            background: linear-gradient(to bottom, rgba(255,255,255,0), rgba(255,255,255,0) 50%, rgba(0,0,0,0.05) 50%, rgba(0,0,0,0.05));
+            top: 0;
+            left: 0;
+            background: linear-gradient(to bottom, rgba(255, 255, 255, 0), rgba(255, 255, 255, 0) 50%, rgba(0, 0, 0, 0.05) 50%, rgba(0, 0, 0, 0.05));
             background-size: 100% 4px;
-            width: 100%; height: 100%;
+            width: 100%;
+            height: 100%;
             pointer-events: none;
-            z-index: 40; /* Lower than modal/taskbar */
+            z-index: 40;
+            /* Lower than modal/taskbar */
         }
 
-        .floating { animation: float 3s ease-in-out infinite; }
-        @keyframes float {
-            0% { transform: translateY(0px); }
-            50% { transform: translateY(-10px); }
-            100% { transform: translateY(0px); }
+        .floating {
+            animation: float 3s ease-in-out infinite;
         }
-        
+
+        @keyframes float {
+            0% {
+                transform: translateY(0px);
+            }
+
+            50% {
+                transform: translateY(-10px);
+            }
+
+            100% {
+                transform: translateY(0px);
+            }
+        }
+
         /* Fixed Marquee Styles */
         .marquee-container {
             overflow: hidden;
@@ -179,36 +215,54 @@
             border: 2px inset #fff;
             width: 100%;
         }
+
         .marquee-content {
             display: inline-block;
             white-space: nowrap;
-            padding-left: 100%; 
+            padding-left: 100%;
             animation: scroll-text 15s linear infinite;
         }
+
         @keyframes scroll-text {
-            0% { transform: translateX(0); }
-            100% { transform: translateX(-100%); }
+            0% {
+                transform: translateX(0);
+            }
+
+            100% {
+                transform: translateX(-100%);
+            }
         }
-        
+
         /* SCATTERED STICKERS CONTAINER */
         #stickers-container {
             position: fixed;
-            top: 0; left: 0;
-            width: 100%; height: 100%;
-            z-index: 1; /* Very low z-index, behind windows */
-            pointer-events: none; /* Allow clicking through */
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+            /* Very low z-index, behind windows */
+            pointer-events: none;
+            /* Allow clicking through */
             overflow: hidden;
         }
+
         .bg-sticker {
             position: absolute;
             object-fit: contain;
             opacity: 0.8;
-            filter: drop-shadow(2px 2px 0 rgba(0,0,0,0.1));
+            filter: drop-shadow(2px 2px 0 rgba(0, 0, 0, 0.1));
             animation: float-random 4s ease-in-out infinite alternate;
         }
+
         @keyframes float-random {
-            from { transform: translateY(0); }
-            to { transform: translateY(-15px); }
+            from {
+                transform: translateY(0);
+            }
+
+            to {
+                transform: translateY(-15px);
+            }
         }
 
         /* --- CAROUSEL STYLES --- */
@@ -218,6 +272,7 @@
             height: 100%;
             width: 100%;
         }
+
         .carousel-slide {
             min-width: 100%;
             height: 100%;
@@ -227,17 +282,19 @@
             align-items: center;
             justify-content: center;
         }
+
         .carousel-slide img {
             max-width: 100%;
             max-height: 100%;
             object-fit: contain;
         }
+
         .carousel-overlay {
             position: absolute;
             bottom: 0;
             left: 0;
             width: 100%;
-            background: rgba(0,0,0,0.6);
+            background: rgba(0, 0, 0, 0.6);
             color: white;
             padding: 8px;
             font-family: 'VT323', monospace;
@@ -253,11 +310,14 @@
             margin: 0;
             height: 24px;
             cursor: pointer;
-            transition: background 0.3s ease; /* Smooth transition */
+            transition: background 0.3s ease;
+            /* Smooth transition */
         }
+
         input[type=range].desktop-scroll:focus {
             outline: none;
         }
+
         input[type=range].desktop-scroll::-webkit-slider-runnable-track {
             width: 100%;
             height: 24px;
@@ -269,6 +329,7 @@
             background-image: radial-gradient(#a0a0a0 15%, transparent 16%);
             background-size: 4px 4px;
         }
+
         input[type=range].desktop-scroll::-webkit-slider-thumb {
             -webkit-appearance: none;
             height: 20px;
@@ -280,13 +341,16 @@
             border-bottom: 2px solid #404040;
             margin-top: 2px;
             box-shadow: none;
-            transition: background 0.3s ease; /* Smooth transition */
+            transition: background 0.3s ease;
+            /* Smooth transition */
         }
+
         input[type=range].desktop-scroll::-webkit-slider-thumb:active {
             background: #a0a0a0;
         }
     </style>
 </head>
+
 <body class="p-4 md:p-8 min-h-screen relative">
 
     <!-- Scanline Effect -->
@@ -297,13 +361,13 @@
 
     <!-- BACKGROUND CHERRY TREES (NEW) -->
     <!-- Note: Ganti src dengan 'cherrytree.gif' jika file ada di satu folder -->
-    <img src="./assets/gif/cherrytree.gif" 
-         class="fixed top-20 left-0 h-[100px] md:h-[200px] z-[5] opacity-50 pointer-events-none object-contain drop-shadow-lg transform -scale-x-100" 
-         alt="Cherry Tree Top Left">
-    
-    <img src="./assets/gif/cherrytree.gif" 
-         class="fixed bottom-20 right-0 h-[100px] md:h-[200px] z-[5] opacity-50 pointer-events-none object-contain drop-shadow-lg" 
-         alt="Cherry Tree Bottom Right">
+    <img src="./assets/gif/cherrytree.gif"
+        class="fixed top-20 left-0 h-[100px] md:h-[200px] z-[5] opacity-50 pointer-events-none object-contain drop-shadow-lg transform -scale-x-100"
+        alt="Cherry Tree Top Left">
+
+    <img src="./assets/gif/cherrytree.gif"
+        class="fixed bottom-20 right-0 h-[100px] md:h-[200px] z-[5] opacity-50 pointer-events-none object-contain drop-shadow-lg"
+        alt="Cherry Tree Bottom Right">
 
     <!-- MAIN CONTAINER - Use Space-y for Section separation -->
     <div class="max-w-5xl mx-auto space-y-16 relative z-10 pb-12">
@@ -316,16 +380,23 @@
                 <div class="win-header">
                     <span><i class="fas fa-heart mr-2"></i>PROFILE.EXE</span>
                     <div class="flex gap-1">
-                        <div class="w-4 h-4 bg-white border border-gray-500 text-black flex items-center justify-center text-xs btn-retro">_</div>
-                        <div class="w-4 h-4 bg-white border border-gray-500 text-black flex items-center justify-center text-xs btn-retro">X</div>
+                        <div
+                            class="w-4 h-4 bg-white border border-gray-500 text-black flex items-center justify-center text-xs btn-retro">
+                            _</div>
+                        <div
+                            class="w-4 h-4 bg-white border border-gray-500 text-black flex items-center justify-center text-xs btn-retro">
+                            X</div>
                     </div>
                 </div>
-                
-                <div class="bg-[#e0e7ff] p-1 border-r-2 border-b-2 border-gray-500 border-l-2 border-t-2 border-white flex-grow flex flex-col">
+
+                <div
+                    class="bg-[#e0e7ff] p-1 border-r-2 border-b-2 border-gray-500 border-l-2 border-t-2 border-white flex-grow flex flex-col">
                     <!-- Tabs -->
                     <div class="flex gap-1 pl-2 pt-1 flex-shrink-0">
-                        <button onclick="switchTab('bio')" id="tab-bio" class="tab-btn active px-4 py-1 rounded-t-lg bg-[#e0e7ff] text-gray-700 font-pixel text-xl border-t-2 border-l-2 border-r-2 border-white">Main</button>
-                        <button onclick="switchTab('stats')" id="tab-stats" class="tab-btn px-4 py-1 rounded-t-lg bg-gray-300 text-gray-600 font-pixel text-xl border-t-2 border-l-2 border-r-2 border-white">Stats</button>
+                        <button onclick="switchTab('bio')" id="tab-bio"
+                            class="tab-btn active px-4 py-1 rounded-t-lg bg-[#e0e7ff] text-gray-700 font-pixel text-xl border-t-2 border-l-2 border-r-2 border-white">Main</button>
+                        <button onclick="switchTab('stats')" id="tab-stats"
+                            class="tab-btn px-4 py-1 rounded-t-lg bg-gray-300 text-gray-600 font-pixel text-xl border-t-2 border-l-2 border-r-2 border-white">Stats</button>
                     </div>
 
                     <!-- Content Area -->
@@ -333,12 +404,17 @@
                         <!-- Left: Avatar/GIF -->
                         <div class="flex flex-col gap-2 w-full md:w-1/3">
                             <div class="aspect-square border-2 border-dashed border-pink-400 p-1 bg-white relative">
-                                <img src="./assets/gif/cat-spinning.gif" alt="Avatar" class="w-full h-full object-cover p-1">
+                                <img src="./assets/gif/cat-spinning.gif" alt="Avatar"
+                                    class="w-full h-full object-cover p-1">
                             </div>
-                            
+
                             <!-- Music Player (Spotify Embed) -->
                             <div class="flex-shrink-0">
-                                <iframe data-testid="embed-iframe" style="border-radius:12px" src="https://open.spotify.com/embed/track/3clPsjTbx4UOPMeQn7FZkV?utm_source=generator&theme=0" width="100%" height="152" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+                                <iframe data-testid="embed-iframe" style="border-radius:12px"
+                                    src="https://open.spotify.com/embed/track/3clPsjTbx4UOPMeQn7FZkV?utm_source=generator&theme=0"
+                                    width="100%" height="152" frameBorder="0" allowfullscreen=""
+                                    allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+                                    loading="lazy"></iframe>
                             </div>
                         </div>
 
@@ -347,20 +423,26 @@
                             <!-- Tab: Bio -->
                             <div id="content-bio" class="block h-full flex flex-col justify-between">
                                 <div>
-                                    <h1 class="text-3xl font-pixel text-purple-600 mb-2">HI, I'M HUH?Ley! <i class="fas fa-sparkles text-yellow-400 floating"></i></h1>
+                                    <h1 class="text-3xl font-pixel text-purple-600 mb-2">HI, I'M HUH?Ley! <i
+                                            class="fas fa-sparkles text-yellow-400 floating"></i></h1>
                                     <p class="font-main text-sm text-gray-700 leading-relaxed mb-4">
-                                        Hallo! NicoAki here, the Nico in the Aki ( ͡⁠°⁠ ͜⁠ʖ⁠ ͡⁠°⁠) || A.K.A HUH?Ley | <br>
-                                        Your local Illustrator, Character Designer, 2D Artist and other drawing shmucks! <br><br>
+                                        Hallo! NicoAki here, the Nico in the Aki ( ͡⁠°⁠ ͜⁠ʖ⁠ ͡⁠°⁠) || A.K.A HUH?Ley |
+                                        <br>
+                                        Your local Illustrator, Character Designer, 2D Artist and other drawing shmucks!
+                                        <br><br>
 
                                         <i>"creamcheese niom"</i>
                                     </p>
-                                    
+
                                     <div class="bg-pink-100 p-2 border border-pink-300 rounded mb-2 font-pixel text-lg">
-                                        <span class="text-pink-600 font-bold">Current Obsession:</span> Usagi from Chiikawa & my husband:3
+                                        <span class="text-pink-600 font-bold">Current Obsession:</span> Usagi from
+                                        Chiikawa & my husband:3
                                     </div>
                                 </div>
-                                <div class="bg-blue-100 border border-blue-300 p-2 text-xs font-main italic text-blue-800 mt-auto">
-                                    "When life gives you lemon, eat the lemon raw and don't wuss out when it gets too sour"
+                                <div
+                                    class="bg-blue-100 border border-blue-300 p-2 text-xs font-main italic text-blue-800 mt-auto">
+                                    "When life gives you lemon, eat the lemon raw and don't wuss out when it gets too
+                                    sour"
                                 </div>
                             </div>
 
@@ -374,11 +456,14 @@
                                     <li>Tools: Clip Studio Paint, GoPaint, Infinite Painter, and Tayasui Sketches</li>
                                     <li>Tablet: VEIKK & Huawei Matepad</li>
                                 </ul>
-                                
+
                                 <div class="mt-4 flex flex-wrap gap-2">
-                                    <span class="bg-purple-200 px-2 border border-purple-400 text-purple-800 text-xs">#ART</span>
-                                    <span class="bg-pink-200 px-2 border border-pink-400 text-pink-800 text-xs">#Y2K</span>
-                                    <span class="bg-cyan-200 px-2 border border-cyan-400 text-cyan-800 text-xs">#COMMISSIONS</span>
+                                    <span
+                                        class="bg-purple-200 px-2 border border-purple-400 text-purple-800 text-xs">#ART</span>
+                                    <span
+                                        class="bg-pink-200 px-2 border border-pink-400 text-pink-800 text-xs">#Y2K</span>
+                                    <span
+                                        class="bg-cyan-200 px-2 border border-cyan-400 text-cyan-800 text-xs">#COMMISSIONS</span>
                                 </div>
                             </div>
                         </div>
@@ -388,16 +473,17 @@
         </section>
 
         <!-- NEWS BOX -->
-         <section id="news-box" class="mt-8">
+        <section id="news-box" class="mt-8">
             <div class="win-box bg-blue-50 h-auto" id="win-tos">
-                    <div class="win-header bg-gradient-to-r from-blue-400 to-blue-900 justify-between">
-                        <span>!!! NEWS !!!</span>
-                        <i class="fas fa-envelope"></i>
-                    </div>
-                    <div class="win-content font-main text-xs text-gray-800">
-                        <p class="mb-2"><strong>COMMISSIONS ARE NOW OPEN!</strong> 
-                            Check out the "PRICES" windows in the portfolio sections below for more info. Feel free to reach out via my social media links!</p>
-                        <!-- <ul class="list-disc pl-4 space-y-1">
+                <div class="win-header bg-gradient-to-r from-blue-400 to-blue-900 justify-between">
+                    <span>!!! NEWS !!!</span>
+                    <i class="fas fa-envelope"></i>
+                </div>
+                <div class="win-content font-main text-xs text-gray-800">
+                    <p class="mb-2"><strong>COMMISSIONS ARE NOW OPEN!</strong>
+                        Check out the "PRICES" windows in the portfolio sections below for more info. Feel free to reach
+                        out via my social media links!</p>
+                    <!-- <ul class="list-disc pl-4 space-y-1">
                             <li>Payment upfront via PayPal / Ko-fi.</li>
                             <li>No refunds after sketch phase.</li>
                             <li>Personal use only (commercial x2).</li>
@@ -405,12 +491,12 @@
                             <li>DNI: AI tech bros, haters.</li>
                         </ul> -->
 
-                        <!-- <div class="mt-2 w-full bg-gray-200 h-2 border border-gray-400">
+                    <!-- <div class="mt-2 w-full bg-gray-200 h-2 border border-gray-400">
                             <div class="bg-blue-600 h-full w-[80%]"></div>
                         </div>
                         <div class="text-right text-[10px] font-pixel mt-1">Downloading rules... 80%</div> -->
-                    </div>
                 </div>
+            </div>
         </section>
         <!-- ========================================== -->
         <!-- SECTION 2: NEWS / MARQUEE (FIXED)          -->
@@ -419,7 +505,8 @@
             <div class="win-box p-1 bg-pink-200 border-none min-h-0" id="win-news" style="resize: horizontal;">
                 <div class="marquee-container font-pixel text-xl py-1">
                     <div class="marquee-content">
-                        +++ COMMISSIONS ARE OPEN! +++ CHECK "PRICES" WINDOW FOR INFO +++ NEW ARTWORK UPLOADED +++ WELCOME TO MY SITE +++
+                        +++ COMMISSIONS ARE OPEN! +++ CHECK "PRICES" WINDOW FOR INFO +++ NEW ARTWORK UPLOADED +++
+                        WELCOME TO MY SITE +++
                     </div>
                 </div>
             </div>
@@ -431,7 +518,7 @@
         <!-- ========================================== -->
         <section class="gallery-wrapper" id="portfolio-1">
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8 items-start">
-                
+
                 <!-- LEFT: Stacked (Info + Prices) -->
                 <div class="md:col-span-1 flex flex-col gap-6">
                     <!-- Illustration Window (Adaptive) -->
@@ -442,7 +529,8 @@
                         </div>
                         <div class="win-content p-0 relative group">
                             <!-- Adaptive Image: w-full h-auto removes fixed constraints -->
-                            <img src="./assets/img/zynnielle/ZYNNIELLE1.png" class="w-full h-auto object-cover block" alt="Art">
+                            <img src="./assets/img/zynnielle/ZYNNIELLE1.png" class="w-full h-auto object-cover block"
+                                alt="Art">
                         </div>
                     </div>
                     <!-- Prices Window -->
@@ -453,13 +541,27 @@
                         </div>
                         <div class="win-content font-pixel text-lg">
                             <table class="w-full text-left">
-                                <tr class="border-b border-gray-300"><td class="py-1">Doodles (B&W)</td><td class="text-right">₱50 / $3</td></tr>
-                                <tr class="border-b border-gray-300"><td class="py-1">Head</td><td class="text-right">₱150 / $5</td></tr>
-                                <tr class="border-b border-gray-300"><td class="py-1">Half Body</td><td class="text-right">₱200 / $10</td></tr>
-                                <tr class="border-b border-gray-300"><td class="py-1">Full Body</td><td class="text-right">₱250 / $15</td></tr>
+                                <tr class="border-b border-gray-300">
+                                    <td class="py-1">Doodles (B&W)</td>
+                                    <td class="text-right">₱50 / $3</td>
+                                </tr>
+                                <tr class="border-b border-gray-300">
+                                    <td class="py-1">Head</td>
+                                    <td class="text-right">₱150 / $5</td>
+                                </tr>
+                                <tr class="border-b border-gray-300">
+                                    <td class="py-1">Half Body</td>
+                                    <td class="text-right">₱200 / $10</td>
+                                </tr>
+                                <tr class="border-b border-gray-300">
+                                    <td class="py-1">Full Body</td>
+                                    <td class="text-right">₱250 / $15</td>
+                                </tr>
                             </table>
                             <div class="mt-2 text-center">
-                                <a href="https://web.facebook.com/profile.php?id=61585489423812" target="_blank" class="btn-retro block w-full px-2 py-1 bg-green-200 text-green-900 text-sm font-bold active:bg-green-300 text-center no-underline">ORDER SKETCH</a>
+                                <a href="https://web.facebook.com/profile.php?id=61585489423812" target="_blank"
+                                    class="btn-retro block w-full px-2 py-1 bg-green-200 text-green-900 text-sm font-bold active:bg-green-300 text-center no-underline">ORDER
+                                    SKETCH</a>
                             </div>
                         </div>
                     </div>
@@ -475,10 +577,22 @@
                         </div>
                         <div class="win-content no-padding relative group w-full h-full bg-black">
                             <div class="carousel-track">
-                                <div class="carousel-slide bg-white"><img src="./assets/img/sketch/SKETCH-1.png?q=80&w=1000&auto=format&fit=crop"><div class="carousel-overlay"><span>Page 01</span></div></div>
-                                <div class="carousel-slide bg-white"><img src="./assets/img/sketch/SKETCH-2.png?q=80&w=1000&auto=format&fit=crop"><div class="carousel-overlay"><span>Page 02</span></div></div>
-                                <div class="carousel-slide bg-white"><img src="./assets/img/sketch/SKETCH-3.png?q=80&w=1000&auto=format&fit=crop"><div class="carousel-overlay"><span>Page 03</span></div></div>
-                                <div class="carousel-slide bg-white"><img src="./assets/img/sketch/SKETCH-4.png?q=80&w=1000&auto=format&fit=crop"><div class="carousel-overlay"><span>Page 04</span></div></div>
+                                <div class="carousel-slide bg-white"><img
+                                        src="./assets/img/sketch/SKETCH-1.png?q=80&w=1000&auto=format&fit=crop">
+                                    <div class="carousel-overlay"><span>Page 01</span></div>
+                                </div>
+                                <div class="carousel-slide bg-white"><img
+                                        src="./assets/img/sketch/SKETCH-2.png?q=80&w=1000&auto=format&fit=crop">
+                                    <div class="carousel-overlay"><span>Page 02</span></div>
+                                </div>
+                                <div class="carousel-slide bg-white"><img
+                                        src="./assets/img/sketch/SKETCH-3.png?q=80&w=1000&auto=format&fit=crop">
+                                    <div class="carousel-overlay"><span>Page 03</span></div>
+                                </div>
+                                <div class="carousel-slide bg-white"><img
+                                        src="./assets/img/sketch/SKETCH-4.png?q=80&w=1000&auto=format&fit=crop">
+                                    <div class="carousel-overlay"><span>Page 04</span></div>
+                                </div>
                             </div>
                             <!-- Buttons removed for cleaner look -->
                         </div>
@@ -494,7 +608,7 @@
         <section class="gallery-wrapper" id="portfolio-2">
             <!-- Note: order-last on md screens moves the first div to the right -->
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8 items-start">
-                
+
                 <!-- LEFT: Big Showcase (Previously Right) -->
                 <div class="md:col-span-2">
                     <div class="win-box w-full carousel-container aspect-[4/3]" id="carousel-2">
@@ -504,11 +618,26 @@
                         </div>
                         <div class="win-content no-padding relative group w-full h-full bg-black">
                             <div class="carousel-track">
-                                <div class="carousel-slide bg-white"><img src="./assets/img/colored_sketch/CLR_SKETCH-1.png?q=80&w=1000&auto=format&fit=crop"><div class="carousel-overlay"><span>PAGE 1</span></div></div>
-                                <div class="carousel-slide bg-white"><img src="./assets/img/colored_sketch/CLR_SKETCH-2.png?q=80&w=1000&auto=format&fit=crop"><div class="carousel-overlay"><span>PAGE 2</span></div></div>
-                                <div class="carousel-slide bg-white"><img src="./assets/img/colored_sketch/CLR_SKETCH-3.png?q=80&w=1000&auto=format&fit=crop"><div class="carousel-overlay"><span>PAGE 3</span></div></div>
-                                <div class="carousel-slide bg-white"><img src="./assets/img/colored_sketch/CLR_SKETCH-4.png?q=80&w=1000&auto=format&fit=crop"><div class="carousel-overlay"><span>PAGE 4</span></div></div>
-                                <div class="carousel-slide bg-white"><img src="./assets/img/colored_sketch/CLR_SKETCH-5.png?q=80&w=1000&auto=format&fit=crop"><div class="carousel-overlay"><span>PAGE 5</span></div></div>
+                                <div class="carousel-slide bg-white"><img
+                                        src="./assets/img/colored_sketch/CLR_SKETCH-1.png?q=80&w=1000&auto=format&fit=crop">
+                                    <div class="carousel-overlay"><span>PAGE 1</span></div>
+                                </div>
+                                <div class="carousel-slide bg-white"><img
+                                        src="./assets/img/colored_sketch/CLR_SKETCH-2.png?q=80&w=1000&auto=format&fit=crop">
+                                    <div class="carousel-overlay"><span>PAGE 2</span></div>
+                                </div>
+                                <div class="carousel-slide bg-white"><img
+                                        src="./assets/img/colored_sketch/CLR_SKETCH-3.png?q=80&w=1000&auto=format&fit=crop">
+                                    <div class="carousel-overlay"><span>PAGE 3</span></div>
+                                </div>
+                                <div class="carousel-slide bg-white"><img
+                                        src="./assets/img/colored_sketch/CLR_SKETCH-4.png?q=80&w=1000&auto=format&fit=crop">
+                                    <div class="carousel-overlay"><span>PAGE 4</span></div>
+                                </div>
+                                <div class="carousel-slide bg-white"><img
+                                        src="./assets/img/colored_sketch/CLR_SKETCH-5.png?q=80&w=1000&auto=format&fit=crop">
+                                    <div class="carousel-overlay"><span>PAGE 5</span></div>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -523,7 +652,8 @@
                             <i class="fas fa-star"></i>
                         </div>
                         <div class="win-content p-0 relative group">
-                            <img src="./assets/img/zynnielle/ZYNNIELLE2.png?q=80&w=1000&auto=format&fit=crop" class="w-full h-auto object-cover block" alt="Art">
+                            <img src="./assets/img/zynnielle/ZYNNIELLE2.png?q=80&w=1000&auto=format&fit=crop"
+                                class="w-full h-auto object-cover block" alt="Art">
                         </div>
                     </div>
                     <!-- Prices Window -->
@@ -534,12 +664,23 @@
                         </div>
                         <div class="win-content font-pixel text-lg">
                             <table class="w-full text-left">
-                                <tr class="border-b border-gray-300"><td class="py-1">Head</td><td class="text-right">₱300 / $20</td></tr>
-                                <tr class="border-b border-gray-300"><td class="py-1">Half Body</td><td class="text-right">₱400 / $23</td></tr>
-                                <tr class="border-b border-gray-300"><td class="py-1">Full Body</td><td class="text-right">₱500 / $26</td></tr>
+                                <tr class="border-b border-gray-300">
+                                    <td class="py-1">Head</td>
+                                    <td class="text-right">₱300 / $20</td>
+                                </tr>
+                                <tr class="border-b border-gray-300">
+                                    <td class="py-1">Half Body</td>
+                                    <td class="text-right">₱400 / $23</td>
+                                </tr>
+                                <tr class="border-b border-gray-300">
+                                    <td class="py-1">Full Body</td>
+                                    <td class="text-right">₱500 / $26</td>
+                                </tr>
                             </table>
                             <div class="mt-2 text-center">
-                                <a href="https://web.facebook.com/profile.php?id=61585489423812" target="_blank" class="btn-retro block w-full px-2 py-1 bg-green-200 text-green-900 text-sm font-bold active:bg-green-300 text-center no-underline">ORDER COLORED SKETCH</a>
+                                <a href="https://web.facebook.com/profile.php?id=61585489423812" target="_blank"
+                                    class="btn-retro block w-full px-2 py-1 bg-green-200 text-green-900 text-sm font-bold active:bg-green-300 text-center no-underline">ORDER
+                                    COLORED SKETCH</a>
                             </div>
                         </div>
                     </div>
@@ -554,7 +695,7 @@
         <!-- ========================================== -->
         <section class="gallery-wrapper" id="portfolio-3">
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8 items-start">
-                
+
                 <!-- LEFT: Stacked -->
                 <div class="md:col-span-1 flex flex-col gap-6">
                     <!-- Illustration Window (Adaptive) -->
@@ -564,7 +705,8 @@
                             <i class="fas fa-image"></i>
                         </div>
                         <div class="win-content p-0 relative group">
-                            <img src="./assets/img/zynnielle/ZYNNIELLE3.png?q=80&w=1000&auto=format&fit=crop" class="w-full h-auto object-cover block" alt="Art">
+                            <img src="./assets/img/zynnielle/ZYNNIELLE3.png?q=80&w=1000&auto=format&fit=crop"
+                                class="w-full h-auto object-cover block" alt="Art">
                         </div>
                     </div>
                     <!-- Prices Window -->
@@ -575,14 +717,31 @@
                         </div>
                         <div class="win-content font-pixel text-lg">
                             <table class="w-full text-left">
-                                <tr class="border-b border-gray-300"><td class="py-1">Head</td><td class="text-right">₱550 / $28</td></tr>
-                                <tr class="border-b border-gray-300"><td class="py-1">Half Body</td><td class="text-right">₱650 / $30</td></tr>
-                                <tr class="border-b border-gray-300"><td class="py-1">Full Body</td><td class="text-right">₱750 / $35</td></tr>
-                                <tr class="border-b border-gray-300"><td class="py-1">Character Sheet</td><td class="text-right">₱900 / $45</td></tr>
-                                <tr class="border-b border-gray-300"><td class="py-1">Additional Render</td><td class="text-right">+₱100 / $10</td></tr>
+                                <tr class="border-b border-gray-300">
+                                    <td class="py-1">Head</td>
+                                    <td class="text-right">₱550 / $28</td>
+                                </tr>
+                                <tr class="border-b border-gray-300">
+                                    <td class="py-1">Half Body</td>
+                                    <td class="text-right">₱650 / $30</td>
+                                </tr>
+                                <tr class="border-b border-gray-300">
+                                    <td class="py-1">Full Body</td>
+                                    <td class="text-right">₱750 / $35</td>
+                                </tr>
+                                <tr class="border-b border-gray-300">
+                                    <td class="py-1">Character Sheet</td>
+                                    <td class="text-right">₱900 / $45</td>
+                                </tr>
+                                <tr class="border-b border-gray-300">
+                                    <td class="py-1">Additional Render</td>
+                                    <td class="text-right">+₱100 / $10</td>
+                                </tr>
                             </table>
                             <div class="mt-2 text-center">
-                                <a href="https://web.facebook.com/profile.php?id=61585489423812" target="_blank" class="btn-retro block w-full px-2 py-1 bg-green-200 text-green-900 text-sm font-bold active:bg-green-300 text-center no-underline">ORDER FULL RENDER</a>
+                                <a href="https://web.facebook.com/profile.php?id=61585489423812" target="_blank"
+                                    class="btn-retro block w-full px-2 py-1 bg-green-200 text-green-900 text-sm font-bold active:bg-green-300 text-center no-underline">ORDER
+                                    FULL RENDER</a>
                             </div>
                         </div>
                     </div>
@@ -597,10 +756,22 @@
                         </div>
                         <div class="win-content no-padding relative group w-full h-full bg-black">
                             <div class="carousel-track">
-                                <div class="carousel-slide bg-white"><img src="./assets/img/full_render/FULL_RENDER1.png?q=80&w=1000&auto=format&fit=crop"><div class="carousel-overlay"><span>PAGE 1</span></div></div>
-                                <div class="carousel-slide bg-white"><img src="./assets/img/full_render/FULL_RENDER2.png?q=80&w=1000&auto=format&fit=crop"><div class="carousel-overlay"><span>PAGE 2</span></div></div>
-                                <div class="carousel-slide bg-white"><img src="./assets/img/full_render/FULL_RENDER3.png?q=80&w=1000&auto=format&fit=crop"><div class="carousel-overlay"><span>PAGE 3</span></div></div>
-                                <div class="carousel-slide bg-white"><img src="./assets/img/full_render/FULL_RENDER4.png?q=80&w=1000&auto=format&fit=crop"><div class="carousel-overlay"><span>PAGE 4</span></div></div>
+                                <div class="carousel-slide bg-white"><img
+                                        src="./assets/img/full_render/FULL_RENDER1.png?q=80&w=1000&auto=format&fit=crop">
+                                    <div class="carousel-overlay"><span>PAGE 1</span></div>
+                                </div>
+                                <div class="carousel-slide bg-white"><img
+                                        src="./assets/img/full_render/FULL_RENDER2.png?q=80&w=1000&auto=format&fit=crop">
+                                    <div class="carousel-overlay"><span>PAGE 2</span></div>
+                                </div>
+                                <div class="carousel-slide bg-white"><img
+                                        src="./assets/img/full_render/FULL_RENDER3.png?q=80&w=1000&auto=format&fit=crop">
+                                    <div class="carousel-overlay"><span>PAGE 3</span></div>
+                                </div>
+                                <div class="carousel-slide bg-white"><img
+                                        src="./assets/img/full_render/FULL_RENDER4.png?q=80&w=1000&auto=format&fit=crop">
+                                    <div class="carousel-overlay"><span>PAGE 4</span></div>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -615,7 +786,7 @@
         <section id="samples-section" class="pt-8 border-t-4 border-dashed border-pink-300">
             <div class="flex items-center justify-center mb-6">
                 <div class="bg-white px-4 py-2 border-2 border-black shadow-[4px_4px_0px_rgba(0,0,0,0.2)]">
-                    <h2 class="font-pixel text-3xl text-pink-500">>>> MORE_SKETCHES.DIR <<<</h2>
+                    <h2 class="font-pixel text-3xl text-pink-500">>>> MORE_SKETCHES.DIR <<<< /h2>
                 </div>
             </div>
 
@@ -627,23 +798,30 @@
                         <i class="fas fa-save cursor-pointer"></i>
                     </div>
                 </div>
-                
+
                 <!-- SCROLL CONTAINER (HIDDEN SCROLLBAR, CONTROLLED BY JS) -->
                 <div class="win-content no-padding bg-white relative">
-                    <div id="sample-scroll-container" class="flex overflow-x-hidden scroll-smooth h-[400px] md:h-[500px]">
+                    <div id="sample-scroll-container"
+                        class="flex overflow-x-hidden scroll-smooth h-[400px] md:h-[500px]">
                         <!-- Images are flex-shrink-0 to sit side-by-side -->
                         <div class="flex-shrink-0 h-full w-auto relative border-r-4 border-white group">
                             <img src="./assets/img/more_sketch/CHAR_SHEET.png" class="h-full w-auto object-cover">
-                            <div class="absolute bottom-4 left-4 bg-white/70 text-pink-500 px-2 font-pixel text-xl border border-pink-300">CHAR_SHEET.PNG</div>
+                            <div
+                                class="absolute bottom-4 left-4 bg-white/70 text-pink-500 px-2 font-pixel text-xl border border-pink-300">
+                                CHAR_SHEET.PNG</div>
                         </div>
                         <div class="flex-shrink-0 h-full w-auto relative border-r-4 border-white group">
                             <img src="./assets/img/more_sketch/SHIP.png" class="h-full w-auto object-cover">
-                            <div class="absolute bottom-4 left-4 bg-white/70 text-pink-500 px-2 font-pixel text-xl border border-pink-300">SHIP.PNG</div>
+                            <div
+                                class="absolute bottom-4 left-4 bg-white/70 text-pink-500 px-2 font-pixel text-xl border border-pink-300">
+                                SHIP.PNG</div>
                         </div>
                         <div class="flex-shrink-0 h-full w-auto relative border-r-4 border-white group">
                             <img src="./assets/img/more_sketch/SHIP2.png" class="h-full w-auto object-cover">
-                            <div class="absolute bottom-4 left-4 bg-white/70 text-pink-500 px-2 font-pixel text-xl border border-pink-300">ZYNNIELLE3.PNG</div>
-                        <!-- </div>
+                            <div
+                                class="absolute bottom-4 left-4 bg-white/70 text-pink-500 px-2 font-pixel text-xl border border-pink-300">
+                                ZYNNIELLE3.PNG</div>
+                            <!-- </div>
                          <div class="flex-shrink-0 h-full w-auto aspect-[4/3] relative border-r-4 border-black group">
                             <img src="https://images.unsplash.com/photo-1581090700227-1e37b190418e?q=80&w=1000&auto=format&fit=crop" class="h-full w-auto object-cover">
                             <div class="absolute bottom-4 left-4 bg-black/70 text-green-400 px-2 font-pixel text-xl border border-green-400">CYBER_SKULL.PNG</div>
@@ -652,19 +830,19 @@
                             <img src="https://images.unsplash.com/photo-1516110833967-0b5716ca1387?q=80&w=1000&auto=format&fit=crop" class="h-full w-auto object-cover">
                             <div class="absolute bottom-4 left-4 bg-black/70 text-green-400 px-2 font-pixel text-xl border border-green-400">NEON_RAI.PNG</div>
                         </div> -->
+                        </div>
                     </div>
-                </div>
 
-                <!-- CONTROLLER AREA -->
-                <div class="bg-gray-200 p-1 border-t-2 border-white flex items-center gap-2">
-                    <button class="btn-retro px-2"><i class="fas fa-caret-left"></i></button>
-                    <!-- THE DESKTOP SLIDER CONTROL -->
-                    <div class="flex-grow bg-white border border-gray-500 h-6 relative">
-                         <input type="range" min="0" max="100" value="0" class="desktop-scroll" id="sample-slider">
+                    <!-- CONTROLLER AREA -->
+                    <div class="bg-gray-200 p-1 border-t-2 border-white flex items-center gap-2">
+                        <button class="btn-retro px-2"><i class="fas fa-caret-left"></i></button>
+                        <!-- THE DESKTOP SLIDER CONTROL -->
+                        <div class="flex-grow bg-white border border-gray-500 h-6 relative">
+                            <input type="range" min="0" max="100" value="0" class="desktop-scroll" id="sample-slider">
+                        </div>
+                        <button class="btn-retro px-2"><i class="fas fa-caret-right"></i></button>
                     </div>
-                    <button class="btn-retro px-2"><i class="fas fa-caret-right"></i></button>
                 </div>
-            </div>
         </section>
 
 
@@ -673,7 +851,7 @@
         <!-- ========================================== -->
         <section id="footer-section">
             <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-                
+
                 <!-- Terms of Service (ToS) -->
                 <div class="win-box bg-orange-50 h-auto" id="win-tos">
                     <div class="win-header bg-gradient-to-r from-orange-400 to-yellow-400">
@@ -681,40 +859,120 @@
                         <i class="fas fa-exclamation-triangle"></i>
                     </div>
                     <div class="win-content font-main text-xs text-gray-800">
-                        <ul class="list-disc pl-4 space-y-3">
-                            <li>Please read the <u>price list</u> before deciding.</li>
-                            <li>For OC's, please provide a <u>color palette sheet</u>.</li>
-                            <li>For poses/illust concept in mind, please <u>provide a reference</u> (the more the better).</li>
-                            <li>You can ask for revisions during drafting, sketching, and coloring. <b>NO MORE REVISIONS DURING RENDERING.</b></li>
-                            <li>Payment will be <b>50/50</b>, 50% upfront and 50% once finshed.</li>
-                            <li>The turnaround time (TAT) <u>will depend</u> whether if the artist is <u>busy or not</u>.<br><br>
+                        <div class="space-y-4 max-h-[400px] overflow-y-auto pr-2">
+                            <div>
+                                <h4 class="font-bold border-b border-gray-400 mb-2 pb-1">PAYMENT</h4>
+                                <ul class="list-none space-y-2">
+                                    <li><strong>1. Mode of Payment:</strong> GCash / Paypal <br> <span
+                                            class="text-[10px] text-gray-600">(preferably GCash but I will adapt)</span>
+                                    </li>
+                                    <li><strong>2. 50% UPFRONT and 50% FINAL</strong> <br> <span
+                                            class="text-[10px] text-gray-600">(I mainly prefer 50/50 but if the client
+                                            says they'll pay in full, they'll get priority)</span></li>
+                                    <li><strong>3. Please send the exact amount on Paypal</strong> <br> <span
+                                            class="text-[10px] text-gray-600">(If it's not the amount I will tell you.
+                                            Won't comply? I won't give your art)</span></li>
+                                </ul>
+                            </div>
 
-                                Busy: 1 -2 weeks<br>
-                                Free: in a week<br><br>
-                            
-                            <b>* Note:</b> Rushed illustrations during <u>"busy"</u> days will be an <u>additional ₱150/$3</u> for the rush fee</li>
-                            <li>If the artist <u>fails to comply</u> to the allocated time <u>without prior message</u>. The payment will be returned as the progress created created by far. <u>However</u>, when the artist <u>is in an emergency</u>. The TAT will automatically be <u>extended to a week</u>.</li>
-                            <li>The methods of payement are PayPal or GCash.</li>
-                            <li>If the art is for <u>commercial uses</u>, there will be an <u>additional ₱1180/$20</u>.</li>
-                            <li>If the client wants an <u>additional character</u>, it'll be an <u>additional half of the bundle</u> (ex. Full Render: Full Body = ₱750 ; Additional character = +₱375)</li>
-                            <li>If you're <u>cancelling the work</u>, at least do it <u>before/during sketching/drafting</u> phase. If declined <u>during</u> rendering, the cancellation will <u>not proceed</u>.</li>
-                            <li><b>ART USED TO TRAIN AI = REPORT.</b></li>
-                            <li>Can do:<br>
-                                - Chibi<br>
-                                - Doodles<br>
-                                - Furry<br>
-                                - Watercolor style<br>
-                                - Acrylic style<br>
-                                - Character sheet<br>
-                                - Simple background<br>
-                                - Gore
-                                </li>
-                            <li>Can't do:<br>
-                                - Complex background<br>
-                                - NSFW<br>
-                                - Armor/Heavy Armor<br>
-                                </li>
-                        </ul>
+                            <div>
+                                <h4 class="font-bold border-b border-gray-400 mb-2 pb-1">TURN AROUND TIME</h4>
+                                <ul class="list-disc pl-4 space-y-1">
+                                    <li>WITHIN 2 WEEKS - A MONTH</li>
+                                    <li>I WILL ASK FOR AN EXTENSION FOR IMPORTANT CASES LIKE INJURIES <span
+                                            class="text-[10px] text-gray-600">(and also if I have a headache)</span>
+                                    </li>
+                                    <li><strong>RUSH FEE:</strong> +P300 / $20</li>
+                                </ul>
+                            </div>
+
+                            <div>
+                                <h4 class="font-bold border-b border-gray-400 mb-2 pb-1">COMMERCIAL USE</h4>
+                                <ul class="list-disc pl-4 space-y-1">
+                                    <li>An additional payment of P1000/ $50</li>
+                                </ul>
+                            </div>
+
+                            <div>
+                                <h4 class="font-bold border-b border-gray-400 mb-2 pb-1">PROCESS</h4>
+                                <ol class="list-decimal pl-4 space-y-2">
+                                    <li>I will make a draft or thumbnail first <span
+                                            class="text-[10px] text-gray-600">(thumbnails are done if you don't have a
+                                            specific pose in mind and you want me to make one for you)</span></li>
+                                    <li>
+                                        <div class="font-bold text-[11px]">IF IT'S A SKETCH/ COLORED SKETCH</div>
+                                        <div>Please pay the first half of the payment before I clean it up</div>
+                                    </li>
+                                    <li>
+                                        <div class="font-bold text-[11px]">IF IT'S A FULL RENDER</div>
+                                        <div>Please pay the first half before I start rendering</div>
+                                    </li>
+                                    <li>If everything is settled, please pay the final payment. I will proceed to send
+                                        you a google drive of the piece</li>
+                                </ol>
+                            </div>
+
+                            <div>
+                                <h4 class="font-bold border-b border-gray-400 mb-2 pb-1">CONDITIONS</h4>
+                                <p class="mb-2 italic">I will do your commission but consider these conditions,
+                                    otherwise I will not work with you.</p>
+                                <ol class="list-decimal pl-4 space-y-2">
+                                    <li>When providing an OC, please provide a color palette or a flat color/ messy
+                                        sketch illustration of your character</li>
+                                    <li>It is okay if your character is still in pieces, I will help you as much as I
+                                        can in creating your OC to life. Although there will be an additional
+                                        <strong>+P250/ +$15</strong>
+                                    </li>
+                                    <li>If your character is canon, let's say for a yumeship or a fanart, please provide
+                                        general detailed information. I will not entertain ones who will make me do my
+                                        own research of the characters you want.</li>
+                                    <li><strong>PLEASE DO NOT CANCEL YOUR COMMISSION.</strong> You wanted to commission
+                                        me.</li>
+                                    <li>Unlimited Revisions throughout the drafting and sketching. There will be no more
+                                        revisions once rendering</li>
+                                </ol>
+                            </div>
+
+                            <div>
+                                <h4 class="font-bold border-b border-gray-400 mb-2 pb-1">CAN and CANNOT DO</h4>
+
+                                <div class="mb-2">
+                                    <h5 class="font-bold text-green-700 bg-green-100 px-1 inline-block">CAN DO WITH
+                                        CHARACTERS:</h5>
+                                    <ul class="list-disc pl-4 space-y-1 mt-1">
+                                        <li>YUMESHIPS</li>
+                                        <li>COUPLES</li>
+                                        <li>FURRIES</li>
+                                        <li>NSFW: GORE</li>
+                                        <li>IN SIMPLE BACKGROUNDS (halftones, colored bg, etc.)</li>
+                                    </ul>
+                                </div>
+
+                                <div class="mb-2">
+                                    <h5 class="font-bold text-blue-700 bg-blue-100 px-1 inline-block">STYLES THAT I CAN
+                                        DO:</h5>
+                                    <ul class="list-disc pl-4 space-y-1 mt-1">
+                                        <li>WATERCOLOR</li>
+                                        <li>MANGA (B&W WITH HALFTONES)</li>
+                                        <li>ACRYLIC LIKE ILLUSTRATION</li>
+                                    </ul>
+                                </div>
+
+                                <div>
+                                    <h5 class="font-bold text-red-700 bg-red-100 px-1 inline-block">CANNOT DO WITH
+                                        CHARACTERS:</h5>
+                                    <ul class="list-disc pl-4 space-y-1 mt-1">
+                                        <li>NSFW: SEXUAL ACTS</li>
+                                        <li>NSFW: REVEALING</li>
+                                        <li>LOLICON/SHOTACON</li>
+                                        <li>MECH</li>
+                                        <li>ARMOR</li>
+                                        <li>COMPLEX BACKGROUNDS</li>
+                                        <li>PERSPECTIVE SHOTS</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
                         <div class="mt-2 w-full bg-gray-200 h-2 border border-gray-400">
                             <div class="bg-blue-600 h-full w-[80%]"></div>
                         </div>
@@ -731,26 +989,34 @@
                             <i class="fas fa-envelope"></i>
                         </div>
                         <div class="win-content flex flex-col gap-2">
-                            <a href="https://discord.gg/1255683330850947192" target="_blank" class="btn-retro flex items-center gap-2 px-4 py-2 bg-indigo-100 text-indigo-900 font-pixel text-xl hover:bg-white no-underline">
-                                <i class="fab fa-discord"></i> Discord: huhley_ 
+                            <a href="https://discord.gg/1255683330850947192" target="_blank"
+                                class="btn-retro flex items-center gap-2 px-4 py-2 bg-indigo-100 text-indigo-900 font-pixel text-xl hover:bg-white no-underline">
+                                <i class="fab fa-discord"></i> Discord: huhley_
                             </a>
-                            <a href="https://www.instagram.com/_huh_ley_/" target="_blank" class="btn-retro flex items-center gap-2 px-4 py-2 bg-pink-100 text-pink-900 font-pixel text-xl hover:bg-white no-underline">
+                            <a href="https://www.instagram.com/_huh_ley_/" target="_blank"
+                                class="btn-retro flex items-center gap-2 px-4 py-2 bg-pink-100 text-pink-900 font-pixel text-xl hover:bg-white no-underline">
                                 <i class="fab fa-instagram"></i> Instagram: @_huh_ley_
                             </a>
-                            <a href="https://x.com/huh_ley" target="_blank" class="btn-retro flex items-center gap-2 px-4 py-2 bg-blue-100 text-blue-900 font-pixel text-xl hover:bg-white no-underline">
+                            <a href="https://x.com/huh_ley" target="_blank"
+                                class="btn-retro flex items-center gap-2 px-4 py-2 bg-blue-100 text-blue-900 font-pixel text-xl hover:bg-white no-underline">
                                 <i class="fab fa-twitter"></i> Twitter / X
                             </a>
-                            <a href="https://www.facebook.com/huh.ley" target="_blank" class="btn-retro flex items-center gap-2 px-4 py-2 bg-blue-200 text-blue-800 font-pixel text-xl hover:bg-white no-underline">
+                            <a href="https://www.facebook.com/huh.ley" target="_blank"
+                                class="btn-retro flex items-center gap-2 px-4 py-2 bg-blue-200 text-blue-800 font-pixel text-xl hover:bg-white no-underline">
                                 <i class="fab fa-facebook"></i> Facebook
                             </a>
-                            <a href="https://https://web.facebook.com/profile.php?id=61585489423812" target="_blank" class="btn-retro flex items-center gap-2 px-4 py-2 bg-blue-300 text-blue-800 font-pixel text-xl hover:bg-white no-underline">
+                            <a href="https://https://web.facebook.com/profile.php?id=61585489423812" target="_blank"
+                                class="btn-retro flex items-center gap-2 px-4 py-2 bg-blue-300 text-blue-800 font-pixel text-xl hover:bg-white no-underline">
                                 <i class="fab fa-facebook"></i> Facebook Art Page
                             </a>
                         </div>
                     </div>
 
                     <!-- Google Drive Link -->
-                    <a href="https://drive.google.com/drive/folders/1Lb88z8iWJahjYPGrnFW1N_HI1glUw3y8?usp=sharing" target="_blank" class="win-box block no-underline group hover:-translate-y-1 transition-transform h-auto" id="win-drive">
+                    <a href="https://drive.google.com/drive/folders/1Lb88z8iWJahjYPGrnFW1N_HI1glUw3y8?usp=sharing"
+                        target="_blank"
+                        class="win-box block no-underline group hover:-translate-y-1 transition-transform h-auto"
+                        id="win-drive">
                         <div class="win-content bg-blue-200 flex items-center justify-center gap-3 p-4">
                             <i class="fab fa-google-drive text-3xl text-gray-700"></i>
                             <div class="font-pixel text-2xl text-gray-800">PORTFOLIO.ZIP</div>
@@ -769,23 +1035,27 @@
     </div>
 
     <!-- UTILITY BAR (TASKBAR) -->
-    <div class="fixed bottom-0 left-0 w-full bg-[#c0c0c0] border-t-2 border-white flex items-center p-1 px-2 z-50 shadow-lg h-[40px]">
-        
+    <div
+        class="fixed bottom-0 left-0 w-full bg-[#c0c0c0] border-t-2 border-white flex items-center p-1 px-2 z-50 shadow-lg h-[40px]">
+
         <!-- Start Button -->
-        <button onclick="window.scrollTo({top: 0, behavior: 'smooth'})" class="btn-retro flex items-center gap-2 px-3 py-1 font-bold font-main text-sm mr-2 shadow-[2px_2px_0_black]">
+        <button onclick="window.scrollTo({top: 0, behavior: 'smooth'})"
+            class="btn-retro flex items-center gap-2 px-3 py-1 font-bold font-main text-sm mr-2 shadow-[2px_2px_0_black]">
             <img src="./assets/img/win95start2.png" class="h-4 w-auto">
             Start
         </button>
 
         <div class="h-6 w-[2px] bg-gray-400 mx-2 border-r border-white"></div>
-        
+
         <!-- NEW CONTACT BUTTON -->
-        <button onclick="document.getElementById('footer-section').scrollIntoView({behavior: 'smooth'})" class="btn-retro flex items-center gap-2 px-3 py-1 font-pixel text-lg active:bg-gray-400">
+        <button onclick="document.getElementById('footer-section').scrollIntoView({behavior: 'smooth'})"
+            class="btn-retro flex items-center gap-2 px-3 py-1 font-pixel text-lg active:bg-gray-400">
             <i class="fas fa-envelope"></i> Contact Me
         </button>
 
         <!-- Clock -->
-        <div class="font-pixel text-lg text-black ml-auto bg-inset px-2 border-2 border-gray-500 bg-white shadow-inner" id="clock">
+        <div class="font-pixel text-lg text-black ml-auto bg-inset px-2 border-2 border-gray-500 bg-white shadow-inner"
+            id="clock">
             12:00 PM
         </div>
     </div>
@@ -799,7 +1069,7 @@
             const minutes = String(now.getMinutes()).padStart(2, '0');
             const ampm = hours >= 12 ? 'PM' : 'AM';
             hours = hours % 12;
-            hours = hours ? hours : 12; 
+            hours = hours ? hours : 12;
             document.getElementById('clock').textContent = `${hours}:${minutes} ${ampm}`;
         }
         setInterval(updateClock, 1000);
@@ -809,14 +1079,14 @@
         function switchTab(tabName) {
             document.getElementById('content-bio').classList.add('hidden');
             document.getElementById('content-stats').classList.add('hidden');
-            
+
             document.getElementById('tab-bio').classList.remove('active', 'bg-[#e0e7ff]');
             document.getElementById('tab-stats').classList.remove('active', 'bg-[#e0e7ff]');
             document.getElementById('tab-bio').classList.add('bg-gray-300');
             document.getElementById('tab-stats').classList.add('bg-gray-300');
 
             document.getElementById(`content-${tabName}`).classList.remove('hidden');
-            
+
             const activeBtn = document.getElementById(`tab-${tabName}`);
             activeBtn.classList.add('active', 'bg-[#e0e7ff]');
             activeBtn.classList.remove('bg-gray-300');
@@ -825,13 +1095,13 @@
         // 3. UNIVERSAL CAROUSEL LOGIC
         function setupCarousel(containerId, autoSlideTime = 3000) {
             const container = document.getElementById(containerId);
-            if (!container) return; 
+            if (!container) return;
 
             const track = container.querySelector('.carousel-track');
             const slides = track.querySelectorAll('.carousel-slide');
-            const nextBtn = container.querySelector('.next-btn'); 
-            const prevBtn = container.querySelector('.prev-btn'); 
-            
+            const nextBtn = container.querySelector('.next-btn');
+            const prevBtn = container.querySelector('.prev-btn');
+
             let currentSlide = 0;
             const totalSlides = slides.length;
             let slideInterval;
@@ -843,13 +1113,13 @@
             function next() {
                 currentSlide = (currentSlide + 1) % totalSlides;
                 updateSlide();
-                if(slideInterval) resetTimer();
+                if (slideInterval) resetTimer();
             }
 
             function prev() {
                 currentSlide = (currentSlide - 1 + totalSlides) % totalSlides;
                 updateSlide();
-                if(slideInterval) resetTimer();
+                if (slideInterval) resetTimer();
             }
 
             function startTimer() {
@@ -861,8 +1131,8 @@
                 startTimer();
             }
 
-            if(nextBtn) nextBtn.addEventListener('click', next);
-            if(prevBtn) prevBtn.addEventListener('click', prev);
+            if (nextBtn) nextBtn.addEventListener('click', next);
+            if (prevBtn) prevBtn.addEventListener('click', prev);
 
             startTimer();
         }
@@ -871,7 +1141,7 @@
         function setupSampleSlider() {
             const slider = document.getElementById('sample-slider');
             const container = document.getElementById('sample-scroll-container');
-            
+
             if (!slider || !container) return;
 
             let isUserScrolling = false;
@@ -879,28 +1149,28 @@
 
             // Slider input handler
             slider.addEventListener('input', () => {
-            isUserScrolling = true;
-            clearTimeout(scrollTimeout);
-            
-            const maxScroll = container.scrollWidth - container.clientWidth;
-            const scrollPos = (slider.value / 100) * maxScroll;
-            
-            container.scrollLeft = scrollPos;
-            
-            scrollTimeout = setTimeout(() => {
-                isUserScrolling = false;
-            }, 150);
+                isUserScrolling = true;
+                clearTimeout(scrollTimeout);
+
+                const maxScroll = container.scrollWidth - container.clientWidth;
+                const scrollPos = (slider.value / 100) * maxScroll;
+
+                container.scrollLeft = scrollPos;
+
+                scrollTimeout = setTimeout(() => {
+                    isUserScrolling = false;
+                }, 150);
             });
 
             // Container scroll handler
             container.addEventListener('scroll', () => {
-            if (isUserScrolling) return;
-            
-            const maxScroll = container.scrollWidth - container.clientWidth;
-            if (maxScroll > 0) {
-                const percentage = (container.scrollLeft / maxScroll) * 100;
-                slider.value = percentage;
-            }
+                if (isUserScrolling) return;
+
+                const maxScroll = container.scrollWidth - container.clientWidth;
+                if (maxScroll > 0) {
+                    const percentage = (container.scrollLeft / maxScroll) * 100;
+                    slider.value = percentage;
+                }
             }, { passive: true });
 
             // Touch swipe support for mobile
@@ -908,43 +1178,43 @@
             let touchEndX = 0;
 
             container.addEventListener('touchstart', (e) => {
-            touchStartX = e.changedTouches[0].screenX;
+                touchStartX = e.changedTouches[0].screenX;
             }, { passive: true });
 
             container.addEventListener('touchend', (e) => {
-            touchEndX = e.changedTouches[0].screenX;
-            handleSwipe();
+                touchEndX = e.changedTouches[0].screenX;
+                handleSwipe();
             }, { passive: true });
 
             function handleSwipe() {
-            const swipeThreshold = 50;
-            const diff = touchStartX - touchEndX;
-            
-            if (Math.abs(diff) > swipeThreshold) {
-                const maxScroll = container.scrollWidth - container.clientWidth;
-                const percentage = (container.scrollLeft / maxScroll) * 100;
-                
-                if (diff > 0) {
-                slider.value = Math.min(100, percentage + 100 / (container.scrollWidth / container.clientWidth));
-                } else {
-                slider.value = Math.max(0, percentage - 100 / (container.scrollWidth / container.clientWidth));
+                const swipeThreshold = 50;
+                const diff = touchStartX - touchEndX;
+
+                if (Math.abs(diff) > swipeThreshold) {
+                    const maxScroll = container.scrollWidth - container.clientWidth;
+                    const percentage = (container.scrollLeft / maxScroll) * 100;
+
+                    if (diff > 0) {
+                        slider.value = Math.min(100, percentage + 100 / (container.scrollWidth / container.clientWidth));
+                    } else {
+                        slider.value = Math.max(0, percentage - 100 / (container.scrollWidth / container.clientWidth));
+                    }
+
+                    const scrollPos = (slider.value / 100) * maxScroll;
+                    container.scrollLeft = scrollPos;
                 }
-                
-                const scrollPos = (slider.value / 100) * maxScroll;
-                container.scrollLeft = scrollPos;
-            }
             }
         }
 
         // 5. RANDOM SCATTERED STICKERS (Usagi Style but Strawberry Theme)
         function spawnStickers() {
             const container = document.getElementById('stickers-container');
-            
+
             // List of Pixel/Cute Strawberry & Cake GIFs
             const gifPool = [
-                "./assets/gif/hearts-spin.gif", 
-                "./assets/gif/strawberry.gif", 
-                "./assets/gif/strawberry-cake-cheesecake.gif", 
+                "./assets/gif/hearts-spin.gif",
+                "./assets/gif/strawberry.gif",
+                "./assets/gif/strawberry-cake-cheesecake.gif",
                 "./assets/gif/stars.gif",
                 "./assets/gif/strawberry.gif",
                 "./assets/gif/hearts-spin.gif"
@@ -952,23 +1222,23 @@
 
             const stickerCount = 15; // Number of stickers
 
-            for(let i=0; i<stickerCount; i++) {
+            for (let i = 0; i < stickerCount; i++) {
                 const img = document.createElement('img');
                 img.src = gifPool[Math.floor(Math.random() * gifPool.length)];
                 img.classList.add('bg-sticker');
-                
+
                 // Random Size (smallish, like stickers)
                 const size = Math.floor(Math.random() * 40) + 30; // 30px to 70px
                 img.style.width = size + 'px';
-                
+
                 // Random Position
                 img.style.left = Math.random() * 95 + '%';
                 img.style.top = Math.random() * 95 + '%';
-                
+
                 // Random Rotation
                 const rotation = Math.floor(Math.random() * 360);
                 img.style.transform = `rotate(${rotation}deg)`;
-                
+
                 // Random Animation Delay so they don't float in sync
                 img.style.animationDelay = Math.random() * 2 + 's';
 
@@ -981,7 +1251,7 @@
             let pos1 = 0, pos2 = 0, pos3 = 0, pos4 = 0;
             // The header is the drag handle
             const header = elmnt.querySelector('.win-header');
-            
+
             if (header) {
                 header.onmousedown = dragMouseDown;
             }
@@ -995,7 +1265,7 @@
                 document.onmouseup = closeDragElement;
                 // Call a function whenever the cursor moves:
                 document.onmousemove = elementDrag;
-                
+
                 // Bring to front visual effect
                 elmnt.style.zIndex = 50;
             }
@@ -1008,22 +1278,22 @@
                 pos2 = pos4 - e.clientY;
                 pos3 = e.clientX;
                 pos4 = e.clientY;
-                
+
                 // Use transform translate instead of top/left to keep layout flow intact
                 // We need to parse existing transform if any, but since we start from 0 relative to flow:
-                
+
                 // Simple current transform check
                 const style = window.getComputedStyle(elmnt);
                 const matrix = new WebKitCSSMatrix(style.transform);
-                
+
                 // Current translation
                 let currentX = matrix.m41;
                 let currentY = matrix.m42;
-                
+
                 // New position
                 let newX = currentX - pos1;
                 let newY = currentY - pos2;
-                
+
                 elmnt.style.transform = `translate(${newX}px, ${newY}px)`;
             }
 
@@ -1040,8 +1310,8 @@
             setupCarousel('carousel-1', 4000);
             setupCarousel('carousel-2', 5000);
             setupCarousel('carousel-3', 4500);
-            
-            setupSampleSlider(); 
+
+            setupSampleSlider();
             spawnStickers();   // New Scattered Stickers
 
             // Init Draggable on all win-boxes
@@ -1051,4 +1321,5 @@
 
     </script>
 </body>
+
 </html>
