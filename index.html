@@ -786,7 +786,7 @@
         <section id="samples-section" class="pt-8 border-t-4 border-dashed border-pink-300">
             <div class="flex items-center justify-center mb-6">
                 <div class="bg-white px-4 py-2 border-2 border-black shadow-[4px_4px_0px_rgba(0,0,0,0.2)]">
-                    <h1 class="font-pixel text-3xl text-pink-500">>>> MORE_SKETCHES.DIR <<<< </h1>
+                    <h1 class="font-pixel text-3xl text-pink-500">>>>> MORE_SKETCHES.DIR <<<< </h1>
                 </div>
             </div>
 
@@ -1053,8 +1053,33 @@
             <i class="fas fa-envelope"></i> Contact Me
         </button>
 
+        <!-- SECRET KEY BUTTON -->
+        <div class="relative ml-auto mr-2 group">
+            <button id="key-btn" onclick="toggleSecretPopup()"
+                class="btn-retro h-[32px] w-[32px] flex items-center justify-center">
+                <img src="./assets/img/key.png" class="h-5 w-auto" alt="Key">
+            </button>
+
+            <!-- POPUP WINDOW -->
+            <div id="secret-popup" class="hidden absolute bottom-12 right-0 w-64 win-box bg-[#c0c0c0] shadow-xl z-50">
+                <div class="win-header bg-gradient-to-r from-red-700 to-red-500 text-white text-sm py-1">
+                    <span>ENTER PASSWORD</span>
+                    <button onclick="toggleSecretPopup()" class="text-xs hover:text-black">X</button>
+                </div>
+                <div class="win-content p-2 flex flex-col gap-2 bg-[#d4d0c8]">
+                    <div class="flex items-center gap-2 bg-white border border-gray-500 p-1">
+                        <img src="./assets/img/key.png" class="h-4 w-4 opacity-50">
+                        <input type="password" id="secret-input"
+                            class="w-full font-main text-sm outline-none bg-transparent" placeholder="********">
+                    </div>
+                    <div id="secret-feedback" class="font-pixel text-center text-red-600 h-5 text-sm"></div>
+                    <button onclick="checkSecret()" class="btn-retro font-bold text-sm py-1">OK</button>
+                </div>
+            </div>
+        </div>
+
         <!-- Clock -->
-        <div class="font-pixel text-lg text-black ml-auto bg-inset px-2 border-2 border-gray-500 bg-white shadow-inner"
+        <div class="font-pixel text-lg text-black bg-inset px-2 border-2 border-gray-500 bg-white shadow-inner"
             id="clock">
             12:00 PM
         </div>
@@ -1318,6 +1343,73 @@
             const windows = document.querySelectorAll('.win-box');
             windows.forEach(win => makeDraggable(win));
         });
+
+        // --- SECRET KEYBOARD LOGIC ---
+        let attemptsLeft = 3;
+        const SECRET_PASS = "09022025";
+
+        function toggleSecretPopup() {
+            const popup = document.getElementById('secret-popup');
+            const input = document.getElementById('secret-input');
+            popup.classList.toggle('hidden');
+            if (!popup.classList.contains('hidden')) {
+                input.value = '';
+                document.getElementById('secret-feedback').textContent = '';
+                input.focus();
+            }
+        }
+
+        function checkSecret() {
+            const input = document.getElementById('secret-input');
+            const feedback = document.getElementById('secret-feedback');
+            const btn = document.getElementById('key-btn');
+            const popup = document.getElementById('secret-popup');
+
+            if (input.value === SECRET_PASS) {
+                // SUCCESS
+                feedback.textContent = "ACCESS GRANTED!";
+                feedback.style.color = 'green';
+
+                // Show Smiley
+                btn.innerHTML = '<i class="fas fa-smile text-yellow-500 text-xl"></i>';
+
+                // Download
+                const link = document.createElement('a');
+                link.href = './assets/secret/letter%20for%20you.zip';
+                link.download = 'letter for you.zip';
+                document.body.appendChild(link);
+                link.click();
+                document.body.removeChild(link);
+
+                setTimeout(() => popup.classList.add('hidden'), 1500);
+
+            } else {
+                // FAIL
+                attemptsLeft--;
+                if (attemptsLeft > 0) {
+                    feedback.textContent = `WRONG! ${attemptsLeft} TRIES LEFT`;
+                    feedback.style.color = 'red';
+                } else {
+                    // GAME OVER
+                    feedback.textContent = "LOCKED OUT";
+                    btn.innerHTML = '<i class="fas fa-frown text-red-600 text-xl"></i>';
+                    btn.onclick = null;
+
+                    setTimeout(() => {
+                        popup.classList.add('hidden');
+                        btn.style.display = 'none';
+                    }, 1000);
+                }
+            }
+        }
+
+        // Enter key support
+        const secretInput = document.getElementById('secret-input');
+        if (secretInput) {
+            secretInput.addEventListener('keypress', (e) => {
+                if (e.key === 'Enter') checkSecret();
+            });
+        }
 
     </script>
 </body>
